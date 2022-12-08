@@ -1,5 +1,5 @@
 import { URL } from "../constants.mjs";
-import * as storage from "../../handlers/storage/index.mjs";
+import * as storage from "../../storage/index.mjs";
 
 export async function login(userDetails) {
   const loginURL = URL + "/auth/login";
