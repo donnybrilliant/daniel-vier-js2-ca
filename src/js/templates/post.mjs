@@ -4,7 +4,9 @@ export function postTemplate(data) {
   return `<div class="my-3 p-3 bg-light rounded border shadow-sm">
     <h6 class="border-bottom pb-2 mb-0">${data.title}</h6>
 
-    <img src="${data.media ? data.media : placeholder}" class="img-fluid">
+    <img src="${
+      data.media ? data.media : placeholder
+    }" class="img-fluid" alt="Image from ${data.title}">
 
     <div class="d-flex text-muted pt-3">
         <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32"

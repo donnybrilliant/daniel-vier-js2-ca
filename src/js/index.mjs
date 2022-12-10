@@ -6,11 +6,12 @@ listener.setRegisterFormListener();
 listener.setLoginFormListener();
 listener.createPostListener();
 listener.updatePostListener();
+listener.updateProfileListener();
 
-async function testTemplate() {
+/* async function testTemplate() {
   const allPosts = await posts.readAll();
   const parent = document.querySelector("#feed");
   templates.renderPostTemplates(allPosts, parent);
 }
 
-testTemplate();
+testTemplate(); */
