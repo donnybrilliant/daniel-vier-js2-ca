@@ -2,7 +2,8 @@ import { URL } from "../constants.mjs";
 import { authFetch } from "../authFetch.mjs";
 
 export async function readAll() {
-  const readPostURL = URL + "/posts/";
+  const readPostURL =
+    URL + "/posts/?_author=true&_comments=true&_reactions=true";
 
   const response = await authFetch(readPostURL);
 

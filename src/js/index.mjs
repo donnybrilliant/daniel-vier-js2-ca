@@ -1,11 +1,15 @@
-import { setRegisterFormListener } from "./handlers/register.mjs";
-import { setLoginFormListener } from "./handlers/login.mjs";
-
+import * as listener from "./handlers/index.mjs";
 import * as posts from "./api/posts/index.mjs";
+import * as templates from "./templates/index.mjs";
 
-setRegisterFormListener();
-setLoginFormListener();
+listener.setRegisterFormListener();
+listener.setLoginFormListener();
+listener.createPostListener();
 
-posts.readAll().then(console.log);
+async function testTemplate() {
+  const allPosts = await posts.readAll();
+  const parent = document.querySelector("#feed");
+  templates.renderPostTemplates(allPosts, parent);
+}
 
-posts.read(739).then(console.log);
+testTemplate();
