@@ -5,6 +5,7 @@ import * as templates from "./templates/index.mjs";
 listener.setRegisterFormListener();
 listener.setLoginFormListener();
 listener.createPostListener();
+listener.updatePostListener();
 
 async function testTemplate() {
   const allPosts = await posts.readAll();
