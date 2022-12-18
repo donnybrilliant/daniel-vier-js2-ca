@@ -3,12 +3,17 @@ import { update, read } from "../api/posts/index.mjs";
 export async function updatePostListener() {
   const form = document.querySelector("#updatePostForm");
 
+  // get this from the rendered post. -data?
   const url = new URL(location.href);
   const id = url.searchParams.get("id");
 
+  // set searchparams on buttonclick??
+
   if (form) {
-    const button = form.querySelector("button[type='submit']");
-    button.disabled = true; // do i need these here?
+    const submitButton = form.querySelector("button[type='submit']");
+    const deleteButton = form.querySelector("button#deleteButton");
+    deleteButton.disabled = true;
+    submitButton.disabled = true;
 
     const data = await read(id);
 
@@ -17,9 +22,12 @@ export async function updatePostListener() {
     form.tags.value = data.tags;
     form.media.value = data.media;
 
-    button.disabled = false;
+    submitButton.disabled = false;
+    deleteButton.disabled = false;
 
     form.addEventListener("submit", (event) => {
+      //use something like this instead of searchparams?
+      //console.log(event.target.id);
       event.preventDefault();
       const form = event.target;
       const formData = new FormData(form);
