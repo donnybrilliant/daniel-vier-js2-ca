@@ -8,7 +8,7 @@
     <title>CA Social Media | Feed</title>
     <link rel="stylesheet" href="../dist/css/styles.css">
     <link rel="shortcut icon" href="../assets/images/favicon.ico" type="image/x-icon">
-    <script type="module" src="../node_modules/bootstrap/dist/js/bootstrap.js" defer></script>
+    <script type="module" src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js" defer></script>
     <script src="../src/js/index.mjs" defer type="module"></script>
 </head>
 
@@ -55,8 +55,19 @@
 
 
                 <form class="py-3 my-3" role="search">
-                    <input class="form-control shadow-sm bg-light" type="search" placeholder="Search"
-                        aria-label="Search">
+                    <div class="input-group">
+                        <input id="searchInput" class="form-control shadow-sm bg-light" type="text" placeholder="Search"
+                            aria-label="Search">
+                        <button class="btn btn-outline-secondary dropdown-toggle" type="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">Filter</button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a id="follwing" class="dropdown-item" href="#">Following</a></li>
+                            <li><a id="old" class="dropdown-item" href="#">Old To New</a></li>
+                            <li><a id="new" class="dropdown-item" href="#">New to Old</a></li>
+                            <li><a id="titleAsc" class="dropdown-item" href="#">Title A - Z</a></li>
+                            <li><a id="titleDesc" class="dropdown-item" href="#">Title Z - A</a></li>
+                        </ul>
+                    </div>
                 </form>
 
                 <div class="row col-12 col-lg-6 mx-auto mb-4">

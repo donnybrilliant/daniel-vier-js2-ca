@@ -5,3 +5,6 @@ export * from "./updatePost.mjs";
 export * from "./updateProfile.mjs";
 export * from "./logout.mjs";
 export * from "./profileLink.mjs";
+export * from "./sort.mjs";
+export * from "./follow.mjs";
+export * from "./search.mjs";

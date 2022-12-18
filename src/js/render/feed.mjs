@@ -13,5 +13,6 @@ export async function feed() {
   } else {
     const allPosts = await posts.readAll();
     templates.renderPostTemplates(allPosts, container);
+    listener.setSearchListener(allPosts);
   }
 }

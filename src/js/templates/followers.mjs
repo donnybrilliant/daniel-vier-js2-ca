@@ -15,7 +15,7 @@ export function followersTemplate(data) {
               <strong><a class="text-decoration-none link-dark" href="/profile/?name=${
                 data.name
               }">${data.name}</strong>
-              <a href="#">Follow</a>
+              <a class="follow" href="#">Follow</a>
           </div>
         
       
