@@ -32,6 +32,7 @@ export function router() {
     listener.createPostListener();
     render.suggestions();
     render.feed();
+    listener.setSortHandler();
   } else if (path === "/profile/") {
     listener.createPostListener();
     listener.updateProfileListener();
