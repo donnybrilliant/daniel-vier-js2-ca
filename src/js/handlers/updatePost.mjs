@@ -1,4 +1,4 @@
-import { update, read } from "../api/posts/index.mjs";
+import * as posts from "../api/posts/index.mjs";
 
 export async function updatePostListener() {
   const form = document.querySelector("#updatePostForm");
@@ -15,7 +15,7 @@ export async function updatePostListener() {
     deleteButton.disabled = true;
     submitButton.disabled = true;
 
-    const data = await read(id);
+    const data = await posts.read(id);
 
     form.title.value = data.title;
     form.body.value = data.body;
@@ -24,6 +24,12 @@ export async function updatePostListener() {
 
     submitButton.disabled = false;
     deleteButton.disabled = false;
+
+    deleteButton.addEventListener("click", (event) => {
+      event.preventDefault();
+      posts.remove(id);
+      console.log(id);
+    });
 
     form.addEventListener("submit", (event) => {
       //use something like this instead of searchparams?
@@ -36,7 +42,7 @@ export async function updatePostListener() {
       post.tags = Array.from(post.tags.split(","));
 
       console.log(post);
-      update(post);
+      posts.update(post);
     });
   }
 }

@@ -11,7 +11,10 @@ export function checkAuthorProfile(data) {
 }
 
 export function checkAuthorPost(data) {
-  if (author.name === data.author.name) {
+  const url = new URL(location.href);
+  const id = url.searchParams.get("id");
+
+  if (id && author.name === data.author.name) {
     return `<button id="${data.id}" type="button" class="editButton btn btn-outline-secondary" data-bs-toggle="modal"
     data-bs-target="#updatePostModal">
     <i class="bi bi-pencil-square"></i></button>`;

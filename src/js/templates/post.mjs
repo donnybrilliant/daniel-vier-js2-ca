@@ -11,7 +11,7 @@ export function postTemplate(data) {
     <div class="d-flex justify-content-between align-items-center pb-2 border-bottom">
     <h5 class="mb-0"><a href="/feed/?id=${
       data.id
-    }" class="link-dark text-decoration-none">${data.title}</a></h5>
+    }" class="" alt="Click to view single post">${data.title}</a></h5>
     <div>
     ${checkTags(data)}
     ${checkAuthorPost(data)}
@@ -63,14 +63,7 @@ export function postTemplate(data) {
     </div>
     <div class="collapse" id="collapseReactions-${data.id}">
         <div class="d-flex mt-2">
-            <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32"
-                xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32"
-                preserveAspectRatio="xMidYMid slice" focusable="false">
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#e83e8c"></rect><text x="50%" y="50%"
-                    fill="#e83e8c" dy=".3em">32x32</text>
-            </svg>
-            <div class="mt-1">197 likes</div>
+            <div class="mt-1">${data._count.reactions} Reactions</div>
         </div>
     </div>
 </div>`;
