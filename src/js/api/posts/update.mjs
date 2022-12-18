@@ -1,6 +1,11 @@
 import { URL } from "../constants.mjs";
 import { authFetch } from "../authFetch.mjs";
 
+/**
+ * Makes an API call to update post with id.
+ * @param {object} data Takes a user object
+ * @returns an object
+ */
 export async function update(data) {
   if (!data.id) {
     throw new Error("Update requires an ID");

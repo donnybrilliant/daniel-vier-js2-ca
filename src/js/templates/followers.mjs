@@ -1,5 +1,10 @@
 import { checkAvatar } from "./avatar.mjs";
 
+/**
+ * Template for users followers
+ * @param {object} data A user object
+ * @returns HTML for one follower
+ */
 export function followersTemplate(data) {
   let followers = "";
 
@@ -23,9 +28,11 @@ export function followersTemplate(data) {
   return followers;
 }
 
-/* export function renderFollowersTemplate(data, parent) {
-  parent.innerHTML = followersTemplate(data);
-} */
+/**
+ * Renders all followers
+ * @param {object} dataList Array of followers
+ * @param {element} parent HMTL element you want to render to
+ */
 
 export function renderFollowersTemplate(dataList, parent) {
   parent.innerHTML = "";
@@ -43,6 +50,11 @@ export function renderFollowersTemplate(dataList, parent) {
   });
 }
 
+/**
+ * Renders all whom user is following
+ * @param {object} dataList Array of followers
+ * @param {element} parent HMTL element you want to render to
+ */
 export function renderFollowingTemplate(dataList, parent) {
   parent.innerHTML = "";
   if (!dataList.length) {
@@ -58,55 +70,3 @@ export function renderFollowingTemplate(dataList, parent) {
     parent.innerHTML += followersTemplate(element);
   });
 }
-
-/* export function postTemplate(data) {
-  const post = document.createElement("div");
-  post.classList.add(
-    "my-3",
-    "p-3",
-    "bg-light",
-    "rounded",
-    "border",
-    "shadow-sm"
-  );
-  const h6 = document.createElement("h6");
-  h6.innerText = data.title;
-  post.appendChild(h6);
-  if (data.media) {
-    const img = document.createElement("img");
-    img.src = data.media;
-    img.classList.add("img-fluid");
-    post.appendChild(img);
-  }
-
-  const bodyContainer = document.createElement("div");
-  bodyContainer.classList.add("d-flex", "text-muted", "pt-3");
-
-    if (data.author.avatar) {
-    const userImage = document.createElement("img");
-    userImage.src = data.author.avatar;
-    bodyContainer.appendChild(userImage);
-  } 
-
-  const bodyParagraph = document.createElement("p");
-  const userName = document.createElement("strong");
-  userName.classList.add("d-block", "text-gray-dark");
-  userName.innerText = data.author;
-  bodyParagraph.appendChild(userName);
-  bodyParagraph.innerText = data.body;
-
-  bodyContainer.appendChild(bodyParagraph);
-
-  post.appendChild(bodyContainer);
-
-  return post;
-}
-
-export function renderPostTemplate(data, parent) {
-  parent.append(postTemplate(data));
-}
-
-export function renderPostTemplates(dataList, parent) {
-  parent.append(...dataList.map(postTemplate));
-}
- */

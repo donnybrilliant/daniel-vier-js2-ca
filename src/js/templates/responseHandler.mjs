@@ -1,12 +1,12 @@
 export async function responseHandler(response) {
-  if (!response.ok) {
+  if (response.ok) {
     return `<div class="alert alert-danger alert-dismissible" role="alert">
-    <div>${response}</div>
+    <div>Success</div>
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>`;
   } else if (response.ok) {
     return `<div class="alert alert-danger alert-dismissible" role="alert">
-  <div>${response}</div>
+  <div>There was an error</div>
   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
   </div>`;
   }

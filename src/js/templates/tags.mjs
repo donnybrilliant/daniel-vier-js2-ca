@@ -1,3 +1,8 @@
+/**
+ * Loops through the tags array of an object
+ * @param {object} data A Single post object
+ * @returns HTML for tags
+ */
 export function checkTags(data) {
   let tags = "";
   data.tags.forEach((element) => {

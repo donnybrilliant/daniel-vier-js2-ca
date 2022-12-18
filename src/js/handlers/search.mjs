@@ -1,5 +1,10 @@
 import { renderPostTemplates } from "../templates/post.mjs";
 
+/**
+ * Search function - should be split into modules
+ * @param {object} posts
+ */
+
 export function setSearchListener(posts) {
   const searchInput = document.querySelector("#searchInput");
   const container = document.querySelector("#feed");

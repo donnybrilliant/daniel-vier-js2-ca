@@ -6,6 +6,9 @@ const user = load("userDetails");
 const accessToken = load("accessToken");
 const path = location.pathname;
 
+/**
+ * Router for application
+ */
 export function router() {
   if (
     (accessToken && path === "/") ||

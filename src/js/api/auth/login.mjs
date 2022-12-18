@@ -1,6 +1,11 @@
 import { URL } from "../constants.mjs";
 import * as storage from "../../storage/index.mjs";
 
+/**
+ * Login function that saves response and user details to local storage, then redirects you to the feed.
+ * @param {object} userDetails
+ */
+
 export async function login(userDetails) {
   const loginURL = URL + "/auth/login";
   const method = "post";

@@ -1,6 +1,10 @@
 import * as templates from "../templates/index.mjs";
 import * as profiles from "../api/profiles/index.mjs";
 
+/**
+ * Gets all followers and following for user found by searchparams
+ * Adds event listeners to buttons - should be another module
+ */
 export async function followers() {
   const url = new URL(location.href);
   const userName = url.searchParams.get("name");

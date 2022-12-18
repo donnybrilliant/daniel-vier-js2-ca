@@ -1,13 +1,15 @@
 import * as posts from "../api/posts/index.mjs";
 
+/**
+ * Reads post by ID, sets values to form input.
+ * Can delete post or update post.
+ * Could also be split into modules
+ */
 export async function updatePostListener() {
   const form = document.querySelector("#updatePostForm");
 
-  // get this from the rendered post. -data?
   const url = new URL(location.href);
   const id = url.searchParams.get("id");
-
-  // set searchparams on buttonclick??
 
   if (form) {
     const submitButton = form.querySelector("button[type='submit']");
@@ -28,21 +30,18 @@ export async function updatePostListener() {
     deleteButton.addEventListener("click", (event) => {
       event.preventDefault();
       posts.remove(id);
-      console.log(id);
+      //successmessage
     });
 
     form.addEventListener("submit", (event) => {
-      //use something like this instead of searchparams?
-      //console.log(event.target.id);
       event.preventDefault();
       const form = event.target;
       const formData = new FormData(form);
       const post = Object.fromEntries(formData.entries());
       post.id = id;
       post.tags = Array.from(post.tags.split(","));
-
-      console.log(post);
       posts.update(post);
+      // success message
     });
   }
 }

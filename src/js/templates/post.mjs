@@ -4,6 +4,11 @@ import { checkComments } from "./comments.mjs";
 import { checkMedia } from "./media.mjs";
 import { checkTags } from "./tags.mjs";
 
+/**
+ * Template for a single post
+ * @param {object} data Takes a single post object
+ * @returns HTML for specified post
+ */
 export function postTemplate(data) {
   return `<div id="${
     data.id
@@ -69,10 +74,20 @@ export function postTemplate(data) {
 </div>`;
 }
 
+/**
+ * Renders a post object on a parent element
+ * @param {object} data A single post object
+ * @param {element} parent The parent element you want to add HTML to
+ */
 export function renderPostTemplate(data, parent) {
   parent.innerHTML = postTemplate(data);
 }
 
+/**
+ * Renders an array of post objects to a parent element
+ * @param {object} dataList Array of post objects
+ * @param {element} parent The parent element you want to add HTML to
+ */
 export function renderPostTemplates(dataList, parent) {
   parent.innerHTML = "";
   dataList.forEach((element) => {
