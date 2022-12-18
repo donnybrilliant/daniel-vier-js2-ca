@@ -10,7 +10,6 @@ export function checkComments(data) {
   if (data.length > 0) {
     let comments = "";
     data.forEach((comment) => {
-      console.log(comment);
       comments += `<div class="d-flex text-muted pt-3">
     <a href="/profile/?name=${comment.author}">${checkAvatar(
         comment.author
