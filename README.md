@@ -4,7 +4,7 @@ Course assignment for JavaScript 2 at Noroff
 
 ![image](https://github.com/donnybrilliant/daniel-vier-js2-ca/blob/js2/assets/images/screenshot.png)
 
-[CA Social Media]is a course assignment for the subject JavaScript 2 at Noroff.
+CA Social Media is a course assignment for the subject JavaScript 2 at Noroff.
 
 ## Description
 
