@@ -11,3 +11,19 @@ aside, main {
 .card {
     cursor: pointer;
 }
+
+.avatar {
+  aspect-ratio: 1 / 1!important;
+}
+
+.img-fluid {
+  width: 100%!important;
+}
+
+.badge {
+  align-self: center!important;
+}
+
+#profileLink {
+  cursor: pointer;
+}
