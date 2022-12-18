@@ -1,5 +1,10 @@
 import { checkAuthorProfile } from "./author.mjs";
 
+/**
+ * Template for user profile
+ * @param {object} data User object
+ * @returns HTML for user profile
+ */
 export function profileTemplate(data) {
   if (data.avatar) {
     const avatar = document.querySelector("#avatar");
@@ -31,65 +36,11 @@ export function profileTemplate(data) {
   <p class="border-bottom">${data._count.posts} posts</p>`;
 }
 
+/**
+ * Renders the users profile page to a parent element
+ * @param {object} data User object
+ * @param {element} parent HTML element
+ */
 export function renderProfileTemplate(data, parent) {
   parent.innerHTML = profileTemplate(data);
 }
-
-/* export function renderProfileTemplates(dataList, parent) {
-  parent.innerHTML = "";
-  dataList.forEach((element) => {
-    parent.innerHTML += profileTemplate(element);
-  });
-} */
-
-/* export function postTemplate(data) {
-  const post = document.createElement("div");
-  post.classList.add(
-    "my-3",
-    "p-3",
-    "bg-light",
-    "rounded",
-    "border",
-    "shadow-sm"
-  );
-  const h6 = document.createElement("h6");
-  h6.innerText = data.title;
-  post.appendChild(h6);
-  if (data.media) {
-    const img = document.createElement("img");
-    img.src = data.media;
-    img.classList.add("img-fluid");
-    post.appendChild(img);
-  }
-
-  const bodyContainer = document.createElement("div");
-  bodyContainer.classList.add("d-flex", "text-muted", "pt-3");
-
-    if (data.author.avatar) {
-    const userImage = document.createElement("img");
-    userImage.src = data.author.avatar;
-    bodyContainer.appendChild(userImage);
-  } 
-
-  const bodyParagraph = document.createElement("p");
-  const userName = document.createElement("strong");
-  userName.classList.add("d-block", "text-gray-dark");
-  userName.innerText = data.author;
-  bodyParagraph.appendChild(userName);
-  bodyParagraph.innerText = data.body;
-
-  bodyContainer.appendChild(bodyParagraph);
-
-  post.appendChild(bodyContainer);
-
-  return post;
-}
-
-export function renderPostTemplate(data, parent) {
-  parent.append(postTemplate(data));
-}
-
-export function renderPostTemplates(dataList, parent) {
-  parent.append(...dataList.map(postTemplate));
-}
- */

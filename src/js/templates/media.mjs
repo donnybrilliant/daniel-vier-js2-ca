@@ -1,3 +1,9 @@
+/**
+ * Checks if the post has an image
+ * @param {object} data Takes a single post object
+ * @returns An image if there is one and an empty string if there is none
+ */
+
 export function checkMedia(data) {
   let image = "";
   if (data.media) {

@@ -1,6 +1,11 @@
 import { URL } from "../constants.mjs";
 import { authFetch } from "../authFetch.mjs";
 
+/**
+ * Send an API call to update profile media
+ * @param {object} data user object
+ * @returns a response
+ */
 export async function update(data) {
   if (!data.name) {
     throw new Error("Update requires a username");

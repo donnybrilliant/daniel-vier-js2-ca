@@ -1,5 +1,9 @@
 import * as render from "../render/sort.mjs";
 
+/**
+ * Looks for clicks on filter buttons.
+ */
+
 export function setSortHandler() {
   const followingButton = document.querySelector("a#follwing");
   const newToOldButton = document.querySelector("a#new");

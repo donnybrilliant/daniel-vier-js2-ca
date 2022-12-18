@@ -1,3 +1,9 @@
+/**
+ * Checks if user has an avatar.
+ * @param {object} data User object
+ * @returns the users avatar or a default one
+ */
+
 export function checkAvatar(data) {
   let avatar = "";
   if (data.avatar) {

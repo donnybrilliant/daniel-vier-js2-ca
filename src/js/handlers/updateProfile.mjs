@@ -1,5 +1,10 @@
 import { read, update } from "../api/profiles/index.mjs";
 
+/**
+ * Updates profile media
+ * Sets porifle values to inputs.
+ * Listens for submit and send put request to API
+ */
 export async function updateProfileListener() {
   const form = document.querySelector("#updateProfileForm");
 
@@ -8,7 +13,7 @@ export async function updateProfileListener() {
 
   if (form) {
     const button = form.querySelector("button[type='submit']");
-    button.disabled = true; // do i need these here?
+    button.disabled = true;
 
     const data = await read(username);
 
@@ -25,9 +30,8 @@ export async function updateProfileListener() {
       const formData = new FormData(form);
       const profile = Object.fromEntries(formData.entries());
       profile.name = data.name;
-
-      console.log(profile);
       update(profile);
+      // successmessage
     });
   }
 }

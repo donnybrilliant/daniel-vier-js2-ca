@@ -2,6 +2,10 @@ import * as templates from "../templates/index.mjs";
 import * as posts from "../api/posts/index.mjs";
 import * as listener from "../handlers/index.mjs";
 
+/**
+ * Sees if the feed has a searchparam of id and renders that post.
+ * If not it renders all posts to feed
+ */
 export async function feed() {
   const url = new URL(location.href);
   const id = url.searchParams.get("id");
