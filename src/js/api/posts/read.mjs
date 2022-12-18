@@ -14,7 +14,8 @@ export async function read(id) {
   if (!id) {
     throw new Error("Requires a post ID");
   }
-  const readPostURL = URL + "/posts/" + id;
+  const readPostURL =
+    URL + "/posts/" + id + "?_author=true&_comments=true&_reactions=true";
 
   const response = await authFetch(readPostURL);
 
