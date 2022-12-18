@@ -9,7 +9,6 @@ export function setLoginFormListener() {
       const form = event.target;
       const formData = new FormData(form);
       const userDetails = Object.fromEntries(formData.entries());
-
       login(userDetails);
     });
   }
