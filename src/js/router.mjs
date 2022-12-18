@@ -8,6 +8,12 @@ const path = location.pathname;
 
 export function router() {
   if (
+    (accessToken && path === "/") ||
+    (accessToken && path === "/index.html")
+  ) {
+    location.href = "/feed/";
+  }
+  if (
     (!accessToken && path === "/feed/") ||
     (!accessToken && path === "/profile")
   ) {
