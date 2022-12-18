@@ -18,4 +18,5 @@ export async function login(userDetails) {
 
   storage.save("accessToken", accessToken);
   storage.save("userDetails", user);
+  location.href = "/feed/";
 }
