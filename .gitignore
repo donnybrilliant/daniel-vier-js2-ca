@@ -105,3 +105,4 @@ dist
 src/scss/assets/.DS_Store
 .gitignore
 src/scss/assets/images/.DS_Store
+.DS_Store
