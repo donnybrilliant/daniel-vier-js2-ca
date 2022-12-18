@@ -1,67 +1,67 @@
+import { checkAuthorPost } from "./author.mjs";
+import { checkAvatar } from "./avatar.mjs";
+import { checkComments } from "./comments.mjs";
+import { checkMedia } from "./media.mjs";
+import { checkTags } from "./tags.mjs";
+
 export function postTemplate(data) {
-  const placeholder = "../assets/images/placeholder.jpeg";
+  return `<div id="${
+    data.id
+  }" class="my-3 p-3 bg-light rounded border shadow-sm">
+    <div class="d-flex justify-content-between align-items-center pb-2 border-bottom">
+    <h5 class="mb-0"><a href="/feed/?id=${
+      data.id
+    }" class="link-dark text-decoration-none">${data.title}</a></h5>
+    <div>
+    ${checkTags(data)}
+    ${checkAuthorPost(data)}
+    </div>
+    </div>
 
-  return `<div class="my-3 p-3 bg-light rounded border shadow-sm">
-    <h6 class="border-bottom pb-2 mb-0">${data.title}</h6>
+    ${checkMedia(data)}
 
-    <img src="${
-      data.media ? data.media : placeholder
-    }" class="img-fluid" alt="Image from ${data.title}">
-
-    <div class="d-flex text-muted pt-3">
-        <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32"
-            xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32"
-            preserveAspectRatio="xMidYMid slice" focusable="false">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="#e83e8c"></rect><text x="50%" y="50%"
-                fill="#e83e8c" dy=".3em">32x32</text>
-        </svg>
+    <div class="d-flex pt-3">
+    <a href="/profile/?name=${data.author.name}">${checkAvatar(data.author)}</a>
 
         <p class="pb-3 mb-0 small lh-sm border-bottom">
-            <strong class="d-block text-gray-dark">@${data.author.name}</strong>
+            <strong class="d-block"><a class="text-decoration-none" href="/profile/?name=${
+              data.author.name
+            }">@${data.author.name}</a></strong>
             ${data.body}
         </p>
     </div>
 
     <div class="row row-cols-3 mt-3">
 
-        <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLikes"
-            aria-expanded="false" aria-controls="collapseLikes"><i
+        <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseReactions-${
+          data.id
+        }"
+            aria-expanded="false" aria-controls="collapseReactions-${
+              data.id
+            }"><i
                 class="bi bi-hand-thumbs-up-fill me-1"></i>
-            ${data._count.reactions} Likes</button>
+            ${data._count.reactions} Reactions</button>
         <button class="btn" type="button" data-bs-toggle="collapse"
-            data-bs-target="#collapseComments" aria-expanded="false"
-            aria-controls="collapseComments"><i class="bi bi-chat-text-fill me-1"></i>
+            data-bs-target="#collapseComments-${data.id}" aria-expanded="false"
+            aria-controls="collapseComments-${
+              data.id
+            }"><i class="bi bi-chat-text-fill me-1"></i>
             ${data._count.comments} Comments</button>
         <button class="btn" data-bs-toggle="modal" data-bs-target="#shareModal"><i
                 class="bi bi-share-fill me-1"></i> Share</button>
     </div>
 
+    
 
-    <div class="collapse" id="collapseComments">
-        <form class="py-3 mt-3" role="search">
-            <input class="form-control shadow-sm" type="search" placeholder="Comment"
-                aria-label="Search">
+    <div class="collapse" id="collapseComments-${data.id}">
+        <form class="py-3 mt-3">
+            <input class="form-control shadow-sm" type="text" placeholder="Comment"
+                aria-label="Comment">
         </form>
-        <div class="d-flex text-muted pt-3">
-            <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32"
-                xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32"
-                preserveAspectRatio="xMidYMid slice" focusable="false">
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#007bff"></rect><text x="50%" y="50%"
-                    fill="#007bff" dy=".3em">32x32</text>
-            </svg>
-
-            <p class="pb-3 mb-0 small lh-sm border-bottom">
-                <strong class="d-block text-gray-dark">@username</strong>
-                Some representative placeholder content, with some information about this user.
-                Imagine
-                this being some sort of status update, perhaps?
-            </p>
-        </div>
+            ${checkComments(data)}
 
     </div>
-    <div class="collapse" id="collapseLikes">
+    <div class="collapse" id="collapseReactions-${data.id}">
         <div class="d-flex mt-2">
             <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32"
                 xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32"
@@ -81,7 +81,10 @@ export function renderPostTemplate(data, parent) {
 }
 
 export function renderPostTemplates(dataList, parent) {
-  parent.innerHTML = dataList.map(postTemplate);
+  parent.innerHTML = "";
+  dataList.forEach((element) => {
+    parent.innerHTML += postTemplate(element);
+  });
 }
 
 /* export function postTemplate(data) {
