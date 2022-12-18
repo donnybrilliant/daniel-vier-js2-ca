@@ -1,4 +1,5 @@
 import { URL } from "../constants.mjs";
+import { responseHandler } from "../../templates/responseHandler.mjs";
 
 export async function register(userDetails) {
   const registerURL = URL + "/auth/register";
@@ -13,6 +14,22 @@ export async function register(userDetails) {
     body,
   });
 
+  responseHandler(response);
+
   const result = await response.json();
   return result;
+  // success message
 }
+
+/* const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
+
+const alert = (message, type) => {
+  const wrapper = document.createElement('div')
+  wrapper.innerHTML = [
+    `<div class="alert alert-${type} alert-dismissible" role="alert">`,
+    `   <div>${message}</div>`,
+    '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+    '</div>'
+  ].join('')
+
+  alertPlaceholder.append(wrapper) */
