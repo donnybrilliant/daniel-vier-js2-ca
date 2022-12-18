@@ -1,41 +1,35 @@
-import * as profiles from "./api/profiles/index.mjs";
 import { load } from "./storage/index.mjs";
 import * as listener from "./handlers/index.mjs";
+import * as render from "./render/index.mjs";
 
-/* const url = new URL(location.href);
-const queryName = url.searchParams.get("name");
+const user = load("userDetails");
 const accessToken = load("accessToken");
-// const user = load("userDetails").name; */
-
 const path = location.pathname;
 
-//switch case
 export function router() {
-  if (path === "/" || path === "/index.html") {
-  }
-
-  /*   if (
-    (path === "/index.html" && accessToken) ||
-    (path === "/" && accessToken)
+  if (
+    (!accessToken && path === "/feed/") ||
+    (!accessToken && path === "/profile")
   ) {
-    window.location.href = "/profile/?name="; //+ user;
-  } else if (path === "/") {
-    listener.setRegisterFormListener();
-    listener.setLoginFormListener();
-  } else if (path === "/feed/" || path === "/profile/") {
-    listener.createPostListener();
-  } else if (path === "/profile/" && queryName) {
-    const profile = profiles.read(queryName);
-    console.log(profile);
-  } else {
-    console.log("no");
-  } */
-}
-
-/* if (path === "/profile/") {
-    window.location.search = "?name=" + user;
-  } */
-
-/*   if (path !== "/") {
+    location.href = "../../index.html";
+  }
+  if (accessToken) {
     listener.setLogoutListener();
-  } */
+  }
+  if (user) {
+    listener.setProfileLinkListener();
+  }
+  if (path === "/" || path === "/index.html") {
+    listener.setLoginFormListener();
+    listener.setRegisterFormListener();
+  } else if (path === "/feed/") {
+    listener.createPostListener();
+    render.suggestions();
+    render.feed();
+  } else if (path === "/profile/") {
+    listener.createPostListener();
+    listener.updateProfileListener();
+    render.followers();
+    render.profile();
+  }
+}

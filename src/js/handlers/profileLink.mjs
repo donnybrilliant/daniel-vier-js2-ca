@@ -1,6 +1,6 @@
 import { load } from "../storage/index.mjs";
 
-export function profileLinkListener() {
+export function setProfileLinkListener() {
   const button = document.querySelector("#profileLink");
   if (button) {
     const name = load("userDetails").name;
