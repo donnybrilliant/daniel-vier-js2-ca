@@ -54,10 +54,18 @@ The following user stories are required for a passing submission:
 
 ## Getting Started
 
+For building SASS and starting live server
+
 ```
 npm i
 
 npm run start
+```
+
+For creating JSDocs
+
+```
+npm run docs
 ```
 
 ## Contributing
