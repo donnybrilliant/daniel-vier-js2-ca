@@ -2,9 +2,9 @@
 
 Course assignment for JavaScript 2 at Noroff
 
-![image](https://github.com/donnybrilliant/daniel-vier-js2-ca/blob/main/assets/images/screenshot.png)
+![image](https://github.com/donnybrilliant/daniel-vier-js2-ca/blob/js2/assets/images/screenshot.png)
 
-[CA Social Media](https://daniel-vier-js2-ca.netlify.app/) is a course assignment for the subject JavaScript 2 at Noroff.
+[CA Social Media]is a course assignment for the subject JavaScript 2 at Noroff.
 
 ## Description
 
@@ -54,11 +54,15 @@ The following user stories are required for a passing submission:
 
 ## Getting Started
 
-[Visit the live site](https://daniel-vier-js2-ca.netlify.app/)
+```
+npm i
+
+npm run start
+```
 
 ## Contributing
 
-Please dont.
+Please help me make it better.
 
 ## Contact
 
