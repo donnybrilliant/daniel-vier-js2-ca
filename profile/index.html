@@ -28,14 +28,15 @@
                             <a class="nav-link" a href="../feed/"><i class="bi bi-house"></i> Feed</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#"><i class="bi bi-person"></i>
+                            <a id="profileLink" class="nav-link active" aria-current="page"><i class="bi bi-person"></i>
                                 Profile</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="../notifications/"><i class="bi bi-bell"></i> Notifications</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../index.html"><i class="bi bi-box-arrow-in-right"></i> Sign
+                            <a class="nav-link" href="../index.html" id="signout"><i
+                                    class="bi bi-box-arrow-in-right"></i> Sign
                                 Out</a>
                         </li>
 
@@ -59,15 +60,14 @@
                 <div class="row flex-grow-1 overflow-auto">
 
 
-                    <div class="row g-5 d-flex align-items-center mb-5">
-                        <div class="col-sm-5 text-center">
-                            <img src="../assets/images/avatar.svg" class="img-fluid mb-4" alt="Profile picture">
-                            <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal"
-                                data-bs-target="#updateProfileModal">
-                                <i class="bi bi-pencil-square"></i> Edit profile</button>
+                    <div id="banner" class="row d-flex align-items-center mb-5 mt-2">
+
+                        <div id="avatarContainer" class="col-sm-5 g-5 text-center">
+                            <img id="avatar" src="../assets/images/avatar.svg"
+                                class="img-fluid mb-4 rounded-circle avatar" alt="Profile picture">
                         </div>
                         <div class="col-sm-7">
-                            <div class="card-body">
+                            <div id="profileInfo" class="card-body">
 
 
 
@@ -75,13 +75,12 @@
                                 <p class="text-gray-dark d-block mb-4">@username</strong>
 
                                 <p class="blockquote-footer">
-                                    <cite title="Source Title">My favorite quote</cite>
+                                    name@email.com
                                 </p>
 
-                                <p class="border-bottom">666 friends</p>
-                                <p class="border-bottom">Hometown: Stavanger</p>
-                                <p class="border-bottom">Work: Ethically horrible company</p>
-                                <p class="border-bottom">Interest: Stuff, things & this</p>
+                                <p class="border-bottom">666 followers</p>
+                                <p class="border-bottom">666 following</p>
+                                <p class="border-bottom">666 posts</p>
                             </div>
                         </div>
                     </div>
@@ -97,246 +96,12 @@
                             <i class="bi bi-plus-circle"></i> Create new post</button>
                     </div>
 
-
-                    <div class="mb-3 p-3 bg-light rounded border shadow-sm">
-                        <div class="d-flex justify-content-between align-items-center border-bottom pb-2">
-                            <h6>@username posted this</h6>
-                            <button type="button" data-bs-toggle="modal" data-bs-target="#updatePostModal"
-                                class="btn btn-outline-secondary">
-                                <i class="bi bi-pencil-square"></i>
-                            </button>
-                        </div>
-                        <img src="../assets/images/placeholder.jpeg" class="img-fluid">
-
-                        <div class="d-flex text-muted pt-3">
-                            <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32"
-                                xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32"
-                                preserveAspectRatio="xMidYMid slice" focusable="false">
-                                <title>Placeholder</title>
-                                <rect width="100%" height="100%" fill="#e83e8c"></rect><text x="50%" y="50%"
-                                    fill="#e83e8c" dy=".3em">32x32</text>
-                            </svg>
-
-                            <p class="pb-3 mb-0 small lh-sm border-bottom">
-                                <strong class="d-block text-gray-dark">@username</strong>
-                                Some more representative placeholder content, related to this other user. Another
-                                status
-                                update, perhaps.
-                            </p>
-                        </div>
-
-                        <div class="row row-cols-3 mt-3">
-
-                            <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLikes"
-                                aria-expanded="false" aria-controls="collapseLikes"><i
-                                    class="bi bi-hand-thumbs-up-fill me-1"></i>
-                                Like</button>
-                            <button class="btn" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseComments" aria-expanded="false"
-                                aria-controls="collapseComments"><i class="bi bi-chat-text-fill me-1"></i>
-                                Comment</button>
-                            <button class="btn" data-bs-toggle="modal" data-bs-target="#shareModal"><i
-                                    class="bi bi-share-fill me-1"></i> Share</button>
-                        </div>
-
-
-                        <div class="collapse" id="collapseComments">
-                            <form class="py-3 mt-3" role="search">
-                                <input class="form-control shadow-sm" type="search" placeholder="Comment"
-                                    aria-label="Search">
-                            </form>
-                            <div class="d-flex text-muted pt-3">
-                                <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32"
-                                    xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32"
-                                    preserveAspectRatio="xMidYMid slice" focusable="false">
-                                    <title>Placeholder</title>
-                                    <rect width="100%" height="100%" fill="#007bff"></rect><text x="50%" y="50%"
-                                        fill="#007bff" dy=".3em">32x32</text>
-                                </svg>
-
-                                <p class="pb-3 mb-0 small lh-sm border-bottom">
-                                    <strong class="d-block text-gray-dark">@username</strong>
-                                    Some representative placeholder content, with some information about this user.
-                                    Imagine
-                                    this being some sort of status update, perhaps?
-                                </p>
-                            </div>
-                            <div class="d-flex text-muted pt-3">
-                                <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32"
-                                    xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32"
-                                    preserveAspectRatio="xMidYMid slice" focusable="false">
-                                    <title>Placeholder</title>
-                                    <rect width="100%" height="100%" fill="#6f42c1"></rect><text x="50%" y="50%"
-                                        fill="#6f42c1" dy=".3em">32x32</text>
-                                </svg>
-
-                                <p class="pb-3 mb-0 small lh-sm border-bottom">
-                                    <strong class="d-block text-gray-dark">@username</strong>
-                                    This user also gets some representative placeholder content. Maybe they did
-                                    something
-                                    interesting, and you really want to highlight this in the recent updates.
-                                </p>
-                            </div>
-
-                        </div>
-                        <div class="collapse " id="collapseLikes">
-                            <div class="d-flex">
-                                <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32"
-                                    xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32"
-                                    preserveAspectRatio="xMidYMid slice" focusable="false">
-                                    <title>Placeholder</title>
-                                    <rect width="100%" height="100%" fill="#e83e8c"></rect><text x="50%" y="50%"
-                                        fill="#e83e8c" dy=".3em">32x32</text>
-                                </svg>
-                                <div class="mt-1">97 likes</div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="my-3 p-3 bg-light rounded border shadow-sm">
-                        <h6 class="border-bottom pb-2 mb-0">@username posted this</h6>
-
-                        <img src="../assets/images/placeholder.jpeg" class="img-fluid">
-
-                        <div class="d-flex text-muted pt-3">
-                            <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32"
-                                xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32"
-                                preserveAspectRatio="xMidYMid slice" focusable="false">
-                                <title>Placeholder</title>
-                                <rect width="100%" height="100%" fill="#e83e8c"></rect><text x="50%" y="50%"
-                                    fill="#e83e8c" dy=".3em">32x32</text>
-                            </svg>
-
-                            <p class="pb-3 mb-0 small lh-sm border-bottom">
-                                <strong class="d-block text-gray-dark">@username</strong>
-                                Some more representative placeholder content, related to this other user. Another
-                                status
-                                update, perhaps.
-                            </p>
-                        </div>
-
-                        <div class="row row-cols-3 mt-3">
-
-                            <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLikes"
-                                aria-expanded="false" aria-controls="collapseLikes"><i
-                                    class="bi bi-hand-thumbs-up-fill me-1"></i>
-                                Like</button>
-                            <button class="btn" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseComments" aria-expanded="false"
-                                aria-controls="collapseComments"><i class="bi bi-chat-text-fill me-1"></i>
-                                Comment</button>
-                            <button class="btn" data-bs-toggle="modal" data-bs-target="#shareModal"><i
-                                    class="bi bi-share-fill me-1"></i> Share</button>
-                        </div>
-
-
-                        <div class="collapse" id="collapseComments">
-                            <form class="py-3 mt-3" role="search">
-                                <input class="form-control shadow-sm" type="search" placeholder="Comment"
-                                    aria-label="Search">
-                            </form>
-                            <div class="d-flex text-muted pt-3">
-                                <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32"
-                                    xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32"
-                                    preserveAspectRatio="xMidYMid slice" focusable="false">
-                                    <title>Placeholder</title>
-                                    <rect width="100%" height="100%" fill="#007bff"></rect><text x="50%" y="50%"
-                                        fill="#007bff" dy=".3em">32x32</text>
-                                </svg>
-
-                                <p class="pb-3 mb-0 small lh-sm border-bottom">
-                                    <strong class="d-block text-gray-dark">@username</strong>
-                                    Some representative placeholder content, with some information about this user.
-                                    Imagine
-                                    this being some sort of status update, perhaps?
-                                </p>
-                            </div>
-
-                        </div>
-                        <div class="collapse" id="collapseLikes">
-                            <div class="d-flex mt-2">
-                                <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32"
-                                    xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32"
-                                    preserveAspectRatio="xMidYMid slice" focusable="false">
-                                    <title>Placeholder</title>
-                                    <rect width="100%" height="100%" fill="#e83e8c"></rect><text x="50%" y="50%"
-                                        fill="#e83e8c" dy=".3em">32x32</text>
-                                </svg>
-                                <div class="mt-1">97 likes</div>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-                    <div class="my-3 p-3 bg-light rounded border shadow-sm">
-                        <h6 class="border-bottom pb-2 mb-0">Recent updates</h6>
-
-                        <div class="d-flex text-muted pt-3">
-                            <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32"
-                                xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32"
-                                preserveAspectRatio="xMidYMid slice" focusable="false">
-                                <title>Placeholder</title>
-                                <rect width="100%" height="100%" fill="#007bff"></rect><text x="50%" y="50%"
-                                    fill="#007bff" dy=".3em">32x32</text>
-                            </svg>
-
-                            <p class="pb-3 mb-0 small lh-sm border-bottom">
-                                <strong class="d-block text-gray-dark">@username</strong>
-                                Some representative placeholder content, with some information about this user.
-                                Imagine
-                                this being some sort of status update, perhaps?
-                            </p>
-                        </div>
-                        <div class="d-flex text-muted pt-3">
-                            <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32"
-                                xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32"
-                                preserveAspectRatio="xMidYMid slice" focusable="false">
-                                <title>Placeholder</title>
-                                <rect width="100%" height="100%" fill="#e83e8c"></rect><text x="50%" y="50%"
-                                    fill="#e83e8c" dy=".3em">32x32</text>
-                            </svg>
-
-                            <p class="pb-3 mb-0 small lh-sm border-bottom">
-                                <strong class="d-block text-gray-dark">@username</strong>
-                                Some more representative placeholder content, related to this other user. Another
-                                status
-                                update, perhaps.
-                            </p>
-                        </div>
-                        <div class="d-flex text-muted pt-3">
-                            <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32"
-                                xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32"
-                                preserveAspectRatio="xMidYMid slice" focusable="false">
-                                <title>Placeholder</title>
-                                <rect width="100%" height="100%" fill="#6f42c1"></rect><text x="50%" y="50%"
-                                    fill="#6f42c1" dy=".3em">32x32</text>
-                            </svg>
-
-                            <p class="pb-3 mb-0 small lh-sm border-bottom">
-                                <strong class="d-block text-gray-dark">@username</strong>
-                                This user also gets some representative placeholder content. Maybe they did
-                                something
-                                interesting, and you really want to highlight this in the recent updates.
-                            </p>
-                        </div>
-                        <small class="d-block text-end mt-3">
-                            <a href="#">All updates</a>
-                        </small>
-                    </div>
+                    <div id="profilePosts" class="row">No posts...</div>
 
 
                 </div>
 
-
-
-
-
-
-
             </main>
-
 
 
 
@@ -344,12 +109,12 @@
             <aside class="col-md-4 col-xl-3 flex-column d-none d-md-flex px-3">
 
                 <div class="btn-group rounded border shadow-sm mb-2" role="group" aria-label="Followers button group">
-                    <button type="button" class="btn btn-outline-secondary p-2">Followers</button>
-                    <button type="button" class="btn btn-outline-secondary p-2">Following</button>
+                    <button id="followersButton" type="button" class="btn btn-outline-secondary p-2">Followers</button>
+                    <button id="followingButton" type="button" class="btn btn-outline-secondary p-2">Following</button>
                 </div>
                 <div class="rounded border bg-white shadow-sm overflow-auto mb-3">
 
-                    <div class="row flex-grow-1 px-4 pb-3">
+                    <div id="followers" class="row flex-grow-1 px-4 pb-3">
 
                         <div class="d-flex text-muted pt-3">
                             <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32"
@@ -840,9 +605,15 @@
                         </div>
 
 
-                        <div class="d-flex justify-content-end">
-                            <button type="button" class="btn btn-secondary m-2" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary m-2">Publish</button>
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <button id="deleteButton" type="button" class="btn btn-danger m-2">Delete</button>
+                            </div>
+                            <div>
+                                <button type="button" class="btn btn-secondary m-2"
+                                    data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary m-2">Publish</button>
+                            </div>
                         </div>
                     </form>
                 </div>
