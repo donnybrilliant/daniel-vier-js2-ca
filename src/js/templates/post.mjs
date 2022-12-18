@@ -63,7 +63,9 @@ export function postTemplate(data) {
             <input class="form-control shadow-sm" type="text" placeholder="Comment"
                 aria-label="Comment">
         </form>
-            ${checkComments(data)}
+            <div id="comments" class="mt-1">${checkComments(
+              data.comments
+            )}</div>
 
     </div>
     <div class="collapse" id="collapseReactions-${data.id}">
