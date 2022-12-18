@@ -11,6 +11,7 @@ listener.setLogoutListener();
 listener.setRegisterFormListener();
 listener.setLoginFormListener();
 listener.updatePostListener();
+listener.createPostListener();
 
 async function testTemplate() {
   const allPosts = await posts.readAll();
@@ -32,7 +33,7 @@ async function testSuggestions() {
 
 testSuggestions();
 
-async function testProfile() {
+async function renderProfile() {
   const url = new URL(location.href);
   const userName = url.searchParams.get("name");
 
@@ -46,9 +47,9 @@ async function testProfile() {
   listener.updatePostListener();
 }
 
-testProfile();
+renderProfile();
 
-async function testFollowers() {
+async function renderFollowers() {
   const url = new URL(location.href);
   const userName = url.searchParams.get("name");
   const profileInfo = await profiles.read(userName);
@@ -64,11 +65,11 @@ async function testFollowers() {
   });
 }
 
-testFollowers();
+renderFollowers();
 
 listener.profileLinkListener();
 
-async function testSinglePost() {
+async function renderAllOrSinglePost() {
   const url = new URL(location.href);
   const id = url.searchParams.get("id");
   const container = document.querySelector("#feed");
@@ -81,4 +82,4 @@ async function testSinglePost() {
   }
 }
 
-testSinglePost();
+renderAllOrSinglePost();
